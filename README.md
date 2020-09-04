@@ -15,7 +15,7 @@ Pyhop is a simple HTN planner written in Python.
 It works in both Python 2 and 3. 
 
 Pyhop was easy to implement (less than 150 lines of code), and if you understand the basic ideas of HTN planning ([this presentation](http://www.cs.umd.edu/~nau/papers/nau2013game.pdf) contains a quick summary),
-Pyhop should be easy to understand.
+Pyhop should be easy to understand. For examples of how to use it, see the example files that come with it.
 
 Pyhop's planning algorithm is like the one in [SHOP](http://www.cs.umd.edu/projects/shop/), but with several differences that should make it easier to integrate it with ordinary computer programs:
 

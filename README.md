@@ -1,9 +1,7 @@
-# README #
+# Pyhop, version 1.2.2
+## A simple HTN planning system written in Python
 
-### What is this repository for? ###
-
-* Pyhop, version 1.2.2
-* A simple HTN planning system written in Python. 
+----
 
 Copyright 2013 Dana S. Nau - <http://www.cs.umd.edu/~nau>
 
@@ -11,14 +9,13 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use 
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
-
-### How do I get set up? ###
+----
 
 Pyhop is a simple HTN planner written in Python. 
 It works in both Python 2 and 3. 
 
 Pyhop was easy to implement (less than 150 lines of code), and if you understand the basic ideas of HTN planning ([this presentation](http://www.cs.umd.edu/~nau/papers/nau2013game.pdf) contains a quick summary),
-Pyhop should be easy to understand. For examples of how to use it, see the example files that come with it.
+Pyhop should be easy to understand.
 
 Pyhop's planning algorithm is like the one in [SHOP](http://www.cs.umd.edu/projects/shop/), but with several differences that should make it easier to integrate it with ordinary computer programs:
 
@@ -27,10 +24,3 @@ Pyhop's planning algorithm is like the one in [SHOP](http://www.cs.umd.edu/proje
   - To write HTN operators and methods for Pyhop, you don't need to learn a specialized planning language. Instead, you write them as ordinary Python functions. The current state (e.g., s in the above example) is passed to them as an argument.
 
 
-### Contribution guidelines ###
-
-* I am not currently accepting contributions.
-
-### Who do I talk to? ###
-
-* [Dana S. Nau](http://www.cs.umd.edu/~nau)

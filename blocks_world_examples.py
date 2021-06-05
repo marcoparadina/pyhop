@@ -2,6 +2,10 @@
 Blocks-world test data for Pyhop 1.1.
 Author: Dana Nau <nau@cs.umd.edu>, November 15, 2012
 This file should work correctly in both Python 2.7 and Python 3.2.
+
+Update, June 4, 2021:
+I've added IPC-2011 problem BW-rand-50 (as transcribed by Éric Jacopin),
+and have moved some other examples to a new file.
 """
 
 from __future__ import print_function
@@ -160,47 +164,42 @@ print('')
 
 pyhop(state3,[('move_blocks', goal3)], verbose=1)
 
-
 print("""
 ****************************************
-Load a modified version of the blocks_world methods, in which the 
-method for 'get' is replaced with two methods that will sometimes 
-cause backtracking.
+Test pyhop on planning problem BW-rand-50 from the IPC 2011 distribution.
 ****************************************
 """)
+ 
+print("- Define initial state for problem IPC2011BWrand50:")
+ 
+IPC2011BWrand50 = State('problem BW-rand-50')
+IPC2011BWrand50.pos = {    
+        1:48, 2:33, 3:41, 4:37, 5:45, 6:16, 7:31, 8:28, 9:49,
+        10:34, 11:15, 12:17, 13:20, 14:2, 15:44, 16:5, 17:32, 18:50, 19:30,
+        20:22, 21:27, 22:38, 23:11, 24:'table', 25:46, 26:'table', 27:40, 28:43, 29:19,
+        30:39, 31:29, 32:'table', 33:'table', 34:14, 35:36, 36:'table', 37:8, 38:9, 39:18,
+        40:3, 41:35, 42:4, 43:24, 44:26, 45:47, 46:42, 47:1, 48:21, 49:25,
+        50:6
+        }
+IPC2011BWrand50.clear = {x:False for x in range(1,50)}
+IPC2011BWrand50.clear.update({7:True, 10:True, 12:True, 13:True, 23:True})
+IPC2011BWrand50.holding = False
+ 
+print_state(IPC2011BWrand50)
+print('')
+ 
+print("- Define goal for problem IPC2011BWrand50:")
+ 
+IPC2011BWrand50Goal = Goal('problem BW-rand-50')
+IPC2011BWrand50Goal.pos = {1:33, 3:40, 4:46, 5:21, 6:17, 7:37, 8:15, 9:41,  
+        10:26, 11:23, 12:25, 13:47, 14:20, 15:19, 16:31, 17:39, 18:50, 19:1,
+        20:45, 21:11, 23:43, 25:42, 26:36, 27:35, 28:29, 29:44,
+        30:8, 31:9, 32:6, 33:10, 34:14, 35:2, 36:7, 37:32, 38:28,
+        40:24, 41:38, 42:34, 43:12, 44:49, 45:4, 46:18, 47:30, 48:22,
+        50:13}
+IPC2011BWrand50Goal.clear = {}
+ 
+print_goal(IPC2011BWrand50Goal)
+print('')
 
-import blocks_world_methods2
-print_methods()
-
-print("""\n=== In the next call to pyhop, it should backtrack:
-the recursion depth should go up, then down, then up again.===\n""")
-
-# verbose=2 tells pyhop to print out a message at each recursion depth
-
-pyhop(state1,[('get', 'a')], verbose=2)
-
-print("""\n=== This time it shouldn't backtrack.===\n""")
-
-
-pyhop(state1,[('get', 'c')], verbose=2)
-
-print("""\n=== This time it should fail.===\n""")
-
-pyhop(state1,[('get', 'b')], verbose=2)
-
-
-
-print("""
-****************************************
-demonstrate different levels of verbosity
-****************************************
-""")
-
-print('- verbosity 0:')
-pyhop(state1,[('get','a')], verbose=0)
-print('- verbosity 1:')
-pyhop(state1,[('get','a')], verbose=1)
-print('- verbosity 2:')
-pyhop(state1,[('get','a')], verbose=2)
-print('- verbosity 3:')
-pyhop(state1,[('get','a')], verbose=3)
+pyhop(IPC2011BWrand50,[('move_blocks', IPC2011BWrand50Goal)], verbose=1)

@@ -2,6 +2,11 @@
 Blocks World methods for Pyhop 1.1.
 Author: Dana Nau <nau@cs.umd.edu>, November 15, 2012
 This file should work correctly in both Python 2.7 and Python 3.2.
+
+Update, June 4, 2021:
+I've inserted a bug fix contributed by Éric Jacopin. Without it,
+a stack overflow occurred in IPC-2011 problem BW-rand-50
+(which I've added to blocks_world_examples.py).
 """
 
 import pyhop
@@ -58,8 +63,12 @@ def moveb_m(state,goal):
         else:
             continue
     #
-    # if we get here, no blocks can be moved to their final locations
-    b1 = pyhop.find_if(lambda x: status(x,state,goal) == 'waiting', all_blocks(state))
+    # If we get here, no blocks can be moved to their final locations.
+    # If there's one needs to be moved and can be moved to the table, do so.
+    b1 = pyhop.find_if(
+        lambda x: status(x,state,goal) == 'waiting' \
+                and not state.pos[x] == 'table',        # Éric Jacopin's bug fix
+        all_blocks(state))
     if b1 != None:
         return [('move_one',b1,'table'), ('move_blocks',goal)]
     #

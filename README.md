@@ -23,4 +23,11 @@ Pyhop's planning algorithm is like the one in [SHOP](http://www.cs.umd.edu/proje
   
   - To write HTN operators and methods for Pyhop, you don't need to learn a specialized planning language. Instead, you write them as ordinary Python functions. The current state (e.g., s in the above example) is passed to them as an argument.
 
+----
+
+Update, June 4, 2021:
+
+- Modified blocks_world_methods.py and blocks_world_methods2.py to include a bug fix contributed by Éric Jacopin.
+- Added a new example to blocks_world_examples.py, and moved some of the other examples into a new file.
+
 

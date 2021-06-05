@@ -5,6 +5,13 @@ backtracking. The only purpose for doing this is to illustrate
 (in the blocks_world_examples.py file) what backtracking looks
 like at different verbosity levels.
 -- Dana Nau <nau@cs.umd.edu>, 2012.05.31.
+
+Update, June 4, 2021:
+I've added IPC-2011 problem BW-rand-50 to blocks_world_examples.py,
+have moved some other examples to a separate file, and have fixed a bug
+in the methods in blocks_world_methods.py and blocks_world_methods2.py.
+Éric Jacopin, who contributed the bug fix, discovered that the previous
+set of blocks-world methods caused a stack overflow on BW-rand-50.
 """
 
 import pyhop
@@ -61,8 +68,11 @@ def moveb_m(state,goal):
         else:
             continue
     #
-    # if we get here, no blocks can be moved to their final locations
-    b1 = pyhop.find_if(lambda x: status(x,state,goal) == 'waiting', all_blocks(state))
+    # If we get here, no blocks can be moved to their final locations.
+    # If there's one needs to be moved and can be moved to the table, do so.
+    b1 = pyhop.find_if(
+        lambda x: status(x,state,goal) == 'waiting' and not state.pos[x] == 'table',
+        all_blocks(state))
     if b1 != None:
         return [('move_one',b1,'table'), ('move_blocks',goal)]
     #

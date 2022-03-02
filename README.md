@@ -30,4 +30,8 @@ Update, June 4, 2021:
 - Modified blocks_world_methods.py and blocks_world_methods2.py to include a bug fix contributed by Éric Jacopin.
 - Added a new example to blocks_world_examples.py, and moved some of the other examples into a new file.
 
+----
 
+Update, August 7, 2021:
+
+- [GTPyhop](https://github.com/dananau/GTPyhop), a successor to Pyhop, is now available on github. [A publication about GTPyhop](https://www.cs.umd.edu/~nau/papers/nau2021gtpyhop.pdf) appeared in the HPlan workshop at ICAPS-2021.

@@ -67,7 +67,9 @@ anyway, so both goals should produce the same plan.
 print("- Define goal1a:")
 
 """
-A goal is a collection of some (but not necessarily all) of the state variables and their desired values. Below, both goal1a and goal1b specify c on b, and b on a. The difference is that goal1a also specifies that a is on table and the hand is empty.
+A goal is a collection of some (but not necessarily all) of the state variables and their desired values. 
+Below, both goal1a and goal1b specify c on b, and b on a. The difference is that goal1a also specifies that a 
+is on table and the hand is empty.
 """
 
 goal1a = Goal('goal1a')

@@ -46,7 +46,7 @@ state2.carrying = {'robot2': None}
 
 print("""- Transportation of a box across different rooms,
 and thus also navigation across rooms:""")
-pyhop.pyhop(state2, [('transport', 'robot2', 'box3', 'p4')], verbose=1)
+pyhop.pyhop(state2, [('transport', 'robot2', 'box3', 'p5')], verbose=1)
 
 print("""- Transportation of a box within a room, 
 and thus also navigation within a room:""")

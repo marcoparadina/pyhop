@@ -40,6 +40,8 @@ def open(state, a, d):
     if state.doors_open[d]==False and state.loc[a]==map.side_of(d, map.room_of(state.loc[a])):
         state.doors_open[d]=True
         return state
+    if state.doors_open[d]:
+        return state
     return False
 
 """
@@ -48,6 +50,8 @@ Operator that closes an open door 'd' when robot 'a' is in front of that door
 def close(state, a, d):
     if state.doors_open[d] and state.loc[a]==map.side_of(d, map.room_of(state.loc[a])):
         state.doors_open[d]=False
+        return state
+    if state.doors_open[d]==False:
         return state
     return False
 

@@ -44,7 +44,7 @@ state2.loc = {'robot2': 'p1', 'box3': 'p9', 'box4': 'p2'}
 state2.doors_open = {'door1':False, 'door2':False, 'door3':False}
 state2.carrying = {'robot2': None}
 
-print("""- Transportation of a box aross different rooms,
+print("""- Transportation of a box across different rooms,
 and thus also navigation across rooms:""")
 pyhop.pyhop(state2, [('transport', 'robot2', 'box3', 'p4')], verbose=1)
 
